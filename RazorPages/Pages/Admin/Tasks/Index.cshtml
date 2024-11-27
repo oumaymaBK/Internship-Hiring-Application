@@ -1,0 +1,208 @@
+﻿@page
+@model RazorPages.Pages.Admin.Tasks.IndexModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Application</title>
+    <!-- Liens vers les CDN de Bootstrap et Font Awesome pour les styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Style pour les boutons de téléchargement de fichier */
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            margin-top: 10px; /* Ajout d'un espace entre le champ et le bouton */
+        }
+
+        .file-input-wrapper input[type="file"] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-input-label {
+            background-color: #f0f0f0; /* Couleur gris clair */
+            color: #333; /* Couleur de texte */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .file-input-label:hover {
+            background-color: #ddd; /* Couleur gris plus foncé au survol */
+        }
+
+        /* Style pour les icônes à côté des boutons */
+        .file-icon {
+            margin-right: 10px;
+        }
+
+        /* Style pour le nom du fichier */
+        .file-name {
+            display: inline-block;
+            margin-left: 10px;
+            color: #007bff; /* Couleur du lien du nom de fichier */
+            font-weight: bold;
+        }
+
+        /* Style pour le dialogue */
+        #dialog-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        #dialog-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Candidate File</h2>
+    <form id="application-form" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-6 mt-2">
+                <div class="form-group">
+                    <label class="text-secondary">First Name <span style="color: red;">*</span>:</label>
+                    <input id="prenom" class="form-control" type="text" placeholder="First Name" required>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-2">
+                <div class="form-group">
+                    <label class="text-secondary">Last Name <span style="color: red;">*</span>:</label>
+                    <input id="nom" class="form-control" type="text" placeholder="Last Name" required>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-2">
+                <div class="form-group">
+                    <label class="text-secondary">Email <span style="color: red;">*</span>:</label>
+                    <input id="email" class="form-control" type="email" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-2">
+                <div class="form-group">
+                    <label class="text-secondary"> Phone Number<span style="color: red;">*</span>:</label>
+                    <input id="telephone" class="form-control" type="tel" placeholder="Phone Number" required>
+                </div>
+            </div>
+            <div class="col-lg-12 mt-2">
+                <div class="form-group">
+                    <label class="text-secondary">faculty </label>
+                    <input id="faculte" class="form-control" type="text" placeholder="faculty" required>
+                </div>
+            </div>
+            <div class="col-lg-12 mt-2">
+                <div class="form-group">
+                    <label class="text-secondary">Level of education</label>
+                    <select id="niveau" class="form-control" required>
+                        <option value="">Choose Level of Education</option>
+                        <option value="Licence">license</option>
+                        <option value="Cycle d'ingénieur">engineering</option>
+                        <!-- Ajoutez d'autres options au besoin -->
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-12 mt-2">
+                <div class="form-group">
+                    <label class="text-secondary">CV (PDF) <span style="color: red;">*</span>:</label>
+                    <br>
+                    <div class="file-input-wrapper">
+                        <button class="file-input-label"><i class="fas fa-upload file-icon"></i> Download Curriculum Vitae</button>
+                        <input id="cv" class="form-control" type="file" accept=".pdf,.doc,.docx" required>
+                        <span class="file-name"></span>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="col-lg-12 mt-2">
+                <div class="form-group">
+                    <label class="text-secondary">Download Cover Letter (PDF) :</label>
+                    <br>
+                    <div class="file-input-wrapper">
+                        <button class="file-input-label"><i class="fas fa-upload file-icon"></i> Download Cover Letter</button>
+                        <input id="lettre_motivation" class="form-control" type="file" accept=".pdf" required>
+                        <span class="file-name"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-2">Submit</button>
+    </form>
+</div>
+
+<!-- Dialogue -->
+    <div id="dialog-overlay">
+        <div id="dialog-box">
+            <p><i class="fas fa-stopwatch" style="color: blue;"></i> <span style="color: #333;">The test has a duration of 30 minutes.</span></p>
+            <p><i class="far fa-lightbulb" style="color: orange;"></i> <span style="color: #333;">You can only take the test once.</span></p>
+            <p><i class="far fa-file-alt" style="color: green;"></i> <span style="color: #333;">The test will consist of technical questions and answers.</span></p>
+            <p><i class="far fa-thumbs-up" style="color: purple;"></i> <span style="color: #333;">Good luck!</span></p>
+                        <a  asp-page="/Admin/Tasks/AddOrEdit" class="btn btn-primary" style="float:right">Take Your Task</a>
+
+        </div>
+        
+    </div>
+
+<!-- Scripts pour Bootstrap et Font Awesome -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Script pour détecter les changements de fichier et afficher leur nom -->
+<script>
+    document.getElementById('cv').addEventListener('change', function () {
+        var fileName = this.files[0].name;
+        document.querySelector('.file-name').innerText = fileName;
+    });
+
+    document.getElementById('lettre_motivation').addEventListener('change', function () {
+        var fileName = this.files[0].name;
+        document.querySelectorAll('.file-name')[1].innerText = fileName;
+    });
+
+    // Afficher le dialogue lors du clic sur le bouton Envoyer
+    $('#application-form').submit(function(event) {
+        event.preventDefault(); // Empêcher le formulaire de s'envoyer
+        $('#dialog-overlay').fadeIn(); // Afficher le dialogue
+    }); 
+</script>
+    <script>
+        // Afficher le dialogue lors du clic sur le bouton Envoyer
+        document.getElementById('application-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Empêcher l'envoi du formulaire
+
+            // Afficher le dialogue
+            document.getElementById('dialog-overlay').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+

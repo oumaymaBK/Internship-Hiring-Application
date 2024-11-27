@@ -1,0 +1,125 @@
+﻿@page
+@model RazorPages.Pages.Admin.Users.UserCandidatureModel
+@{
+}
+<head>
+    <style>
+        /* Style pour les boutons de téléchargement de fichier */
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            margin-top: 10px; /* Ajout d'un espace entre le champ et le bouton */
+        }
+
+            .file-input-wrapper input[type="file"] {
+                font-size: 100px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+        .file-input-label {
+            background-color: #f0f0f0; /* Couleur gris clair */
+            color: #333; /* Couleur de texte */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+            .file-input-label:hover {
+                background-color: #ddd; /* Couleur gris plus foncé au survol */
+            }
+
+        /* Style pour les icônes à côté des boutons */
+        .file-icon {
+            margin-right: 10px;
+        }
+
+        /* Style pour le nom du fichier */
+        .file-name {
+            display: inline-block;
+            margin-left: 10px;
+            color: #007bff; /* Couleur du lien du nom de fichier */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<html>
+<form id="application-form" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-lg-6 mt-2">
+            <div class="form-group">
+                <label class="text-secondary">Prénom <span style="color: red;">*</span>:</label>
+                <input id="prenom" class="form-control" type="text" placeholder="Entrez votre prénom" required>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-2">
+            <div class="form-group">
+                <label class="text-secondary">Nom <span style="color: red;">*</span>:</label>
+                <input id="nom" class="form-control" type="text" placeholder="Entrez votre nom" required>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-2">
+            <div class="form-group">
+                <label class="text-secondary">Adresse e-mail <span style="color: red;">*</span>:</label>
+                <input id="email" class="form-control" type="email" placeholder="Entrez votre adresse e-mail" required>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-2">
+            <div class="form-group">
+                <label class="text-secondary">Numéro de téléphone <span style="color: red;">*</span>:</label>
+                <input id="telephone" class="form-control" type="tel" placeholder="Entrez votre numéro de téléphone" required>
+            </div>
+        </div>
+        <div class="col-lg-12 mt-2">
+            <div class="form-group">
+                <label class="text-secondary">Faculté :</label>
+                <input id="faculte" class="form-control" type="text" placeholder="Entrez votre faculté ou département" required>
+            </div>
+        </div>
+        <div class="col-lg-12 mt-2">
+            <div class="form-group">
+                <label class="text-secondary">Niveau d'études :</label>
+                <select id="niveau" class="form-control" required>
+                    <option value="">Sélectionnez votre niveau d'études</option>
+                    <option value="Licence">Licence</option>
+                    <option value="Cycle d'ingénieur">Cycle d'ingénieur</option>
+                    <!-- Ajoutez d'autres options au besoin -->
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-12 mt-2">
+            <div class="form-group">
+                <label class="text-secondary">CV (PDF) <span style="color: red;">*</span>:</label>
+                <br>
+
+                <div class="file-input-wrapper">
+                    <button class="file-input-label"><i class="fas fa-upload file-icon"></i> Télécharger votre CV</button>
+                    <input id="cv" class="form-control" type="file" accept=".pdf,.doc,.docx" required>
+                    <span class="file-name"></span>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="col-lg-12 mt-2">
+            <div class="form-group">
+                <label class="text-secondary">Lettre de motivation (PDF) :</label>
+                <br>
+                <div class="file-input-wrapper">
+                    <button class="file-input-label"><i class="fas fa-upload file-icon"></i> Télécharger votre lettre de motivation</button>
+                    <input id="lettre_motivation" class="form-control" type="file" accept=".pdf" required>
+                    <span class="file-name"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mt-2">Envoyer</button>
+</form>
+</html>

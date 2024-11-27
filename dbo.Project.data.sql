@@ -1,0 +1,1 @@
+﻿INSERT INTO [dbo].[Project] ([ProjectId], [Title], [Description], [PublishedDate], [Duration], [Level], [Experience_type], [Profil_Required], [Technical_Khowledge], [Ref], [ImageUrl], [BookId]) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)

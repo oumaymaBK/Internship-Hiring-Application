@@ -1,0 +1,143 @@
+﻿@page
+@model RazorPages.Pages.Admin.Users.RegisterModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sofbox - Responsive Bootstrap 4 Admin Dashboard Template</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/images1/favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css1/bootstrap.min.css">
+    <!-- Typography CSS -->
+    <link rel="stylesheet" href="~/css1/typography.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="~/css1/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/css1/responsive.css">
+</head>
+<body style="height: 1000px;">
+    <!-- Sign in Start -->
+    <!-- loader Start -->
+    <div id="loading">
+        <div id="loading-center">
+            <div class="loader">
+                <div class="cube">
+                    <div class="sides">
+                        <div class="top"></div>
+                        <div class="right"></div>
+                        <div class="bottom"></div>
+                        <div class="left"></div>
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- loader END -->
+    <!-- Sign in Start -->
+    <section class="sign-in-page bg-white">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-sm-6 align-self-center">
+                    <div class="sign-in-from">
+                        <h1 class="mb-0">Register New User</h1>
+                        <form class="mt-0" method="post">
+                                   <div asp-validation-summary="All" class="text-danger"></div>
+                                  <div class="form-group">
+                                     <label class=" form-label">First Name</label>
+                                      <input asp-for= "UserInput.FirstName" type="text" class="form-control" />
+                                    </div>
+
+                                  <div class="form-group">
+                                      <label class=" form-label">Last Name</label>
+                                      <input asp-for ="UserInput.LastName" type="text" class="form-control" />
+                                  </div>
+
+                                <div class="form-group">
+                                      <label class=" form-label">Phone Number</label>
+                                <input asp-for="UserInput.PhoneNumber" type="text" pattern="+[0-9]{15}" class="form-control" />
+
+                                </div>
+
+
+                                <div class="form-group">
+                                   <label class=" form-label">Email</label>
+                                    <input asp-for="UserInput.Email" type="email" class="form-control" />
+
+                                 </div>
+
+                                <div class="form-group">
+                                  <label class=" form-label">Password</label>
+                                   <input   asp-for="UserInput.Password" type="password" class="form-control" />
+
+                                </div>
+
+                                <div class="form-group">
+                                   <label class=" form-label">Confirm Password </label>
+                                   <input asp-for="UserInput.ConfirmPassword" type="password" class="form-control" />
+
+                                 </div>
+
+
+                                <button type="submit" class=" btn btn-primary"><i class="bi bi-check-circle" style="color:white"></i>Register</button>
+
+              
+                       </form>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 text-center">
+                    <div class="sign-in-detail " style="background-color: #87CEFA; background-size: cover;">
+                        <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
+                            <div class="item">
+                                <img src="~/images1/login/3.png" class="img-fluid mb-4" alt="logo">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Sign in END -->
+                    <!-- Optional JavaScript -->
+                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                    <script src="~/js1/jquery.min.js"></script>
+                    <script src="~/js1/popper.min.js"></script>
+                    <script src="~/js1/bootstrap.min.js"></script>
+                    <!-- Appear JavaScript -->
+                    <script src="~/js1/jquery.appear.js"></script>
+                    <!-- Countdown JavaScript -->
+                    <script src="~/js1/countdown.min.js"></script>
+                    <!-- Counterup JavaScript -->
+                    <script src="~/js1/waypoints.min.js"></script>
+                    <script src="~/js1/jquery.counterup.min.js"></script>
+                    <!-- Wow JavaScript -->
+                    <script src="~/js1/wow.min.js"></script>
+                    <!-- Apexcharts JavaScript -->
+                    <script src="~/js1/apexcharts.js"></script>
+                    <!-- Slick JavaScript -->
+                    <script src="~/js1/slick.min.js"></script>
+                    <!-- Select2 JavaScript -->
+                    <script src="~/js/select2.min.js"></script>
+                    <!-- Owl Carousel JavaScript -->
+                    <script src="~/js1/owl.carousel.min.js"></script>
+                    <!-- Magnific Popup JavaScript -->
+                    <script src="~/js1/jquery.magnific-popup.min.js"></script>
+                    <!-- Smooth Scrollbar JavaScript -->
+                    <script src="~/js1/smooth-scrollbar.js"></script>
+                    <!-- Chart Custom JavaScript -->
+                    <script src="~/js1/chart-custom.js"></script>
+                    <!-- Custom JavaScript -->
+                    <script src="~/js1/custom.js"></script>
+</body>
+</html>
+
+

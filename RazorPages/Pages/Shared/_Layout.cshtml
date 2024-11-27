@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RazorPages</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RazorPages.styles.css" asp-append-version="true" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/css3/bootstrap.min.css">
+    <link rel="stylesheet" href="/css3/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css3/magnific-popup.css">
+    <link rel="stylesheet" href="/css3/font-awesome.min.css">
+    <link rel="stylesheet" href="/css3/themify-icons.css">
+    <link rel="stylesheet" href="/css3/nice-select.css">
+    <link rel="stylesheet" href="/css3/flaticon.css">
+    <link rel="stylesheet" href="/css3/gijgo.css">
+    <link rel="stylesheet" href="/css3/animate.min.css">
+    <link rel="stylesheet" href="/css3/slicknav.css">
+
+    <link rel="stylesheet" href="/css3/style.css">
+</head>
+<body>
+    <header>
+       <nav class="navbar navbar-expand-sm navbar-light bg-primary" style="height: 60px;">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index"> <img src="~/Images/logo.png" class="w-75" /></a>
+@*                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                
+                </button> *@
+                @*Udemy*@
+                @*if (Context.Session.GetString("role") == null)//user is not authenticated
+                {*@
+
+                <a class="nav-link style="color: black" href="/Home/Index"> <i class="bi bi-house-heart-fill" class="w-75"></i>Home </a>
+        
+                    <a class="nav-link style="color: black"> <i class="bi bi-person-lines-fill" class="w-75"></i> About Us </a>
+                    
+                   <a class="nav-link style="color: black"> <i class="bi bi-envelope-fill" class="w-75"></i> Contact Us </a>
+                  <partial name="LoginPartial" />
+
+
+                @* En faisantt<li class="nav-item">
+                <a class="nav-link text-Black" asp-page="/Admin/Users/Register"><i class="bi bi-person-plus"></i> Register</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link text-Black" asp-page="/Admin/Users/Login"><i class="bi bi-box-arrow-in-right"></i>  Login</a>
+                </li>
+                @*
+
+                @* }
+                @*else if (Context.Session.GetString("role").Equals("admin"))
+                {*@
+
+               
+                        @* <li class="nav-item dropdown">
+                                <button class="btn btn-Black text-Black dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-gear"></i> Administration
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-Black">
+                                    <li><a class="dropdown-item" href="#">Features</a></li>
+                                    <li><a class="dropdown-item" href="#">Projets</a></li>
+                                    <li><a class="dropdown-item" href="#">Users</a></li>
+                                </ul>
+                            </li>*@
+                        @*
+                            <li class="nav-item">
+                                <a class="nav-link text-Black"><i class="bi bi-house"></i>  Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-Black" ><i class="bi bi-book-fill" style="color:silver"></i>  Projets</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-Black"><i class="bi bi-patch-check-fill"></i> Tests</a>
+                            </li>
+                             *@
+                       
+                @* }
+
+                @*else if (Context.Session.GetString("role").Equals("candidate"))
+                {*@
+
+                   @*
+
+                   tawqa
+                    <ul class="navbar-nav"style="margin-left:auto;">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-Black text-Black dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle"></i>  User
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-Black">
+                       <li><a class="dropdown-item" href="#">Profil</a></li>
+                        <li><a class="dropdown-item" href="#">My Tests</a></li>
+                        <li><partial name="LoginPartial" /></li>
+                       
+                        </li> *@
+                    @* <li class="nav-item">
+                                <a class="nav-link text-Black"asp-page="Admin/Users/Register"><i class="bi bi-person-plus"></i>  Register</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link text-white" asp-page="Admin/Users/Login" ><i class="bi bi-box-arrow-in-right"></i>  Login</a>
+                        </li>
+
+                    </ul>
+                }
+                @*Udemy*@
+            </div>
+            </div>
+        </nav>
+    </header>
+    <body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+@* 
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - RazorPages - <a asp-area="" asp-page="/Privacy">BrightCodingCourses</a>
+        </div>
+    </footer> *@
+        <section class="col-sm-8 col-md-12">
+            <img class="w-80 mx-auto d-block" src="~/img1/illustrations/come-on-join.png" alt="" height="350" />
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <h6 class="fw-bold fs-3 fs-lg-5 lh-sm" height="35">Come on, join with us !</h6>
+                        <p>Create an account and apply for your internship ==>> <a href="http://ia-tech.net/wp-content/uploads/2020/01/IAT_Catalogue_de_stages_2020.pdf">PFE I@T BOOK</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- job_listing_area_start  -->
+        <div class="job_listing_area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <br />
+                        <div class="section_title">
+                            <h3>Project Listing</h3>
+                        </div>
+                        <br />
+
+                    </div>
+                    <div class="col-lg-6">
+                       
+                    </div>
+                </div>
+                <div class="job_lists">
+                    <div class="row">
+                       
+                        <div class="col-lg-12 col-md-12">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="/img3/svg_icon/2.svg" alt="">
+                                    </div>
+                                    <div class="jobs_conetent">
+                                        <a href="job_details.html"><h4>Smart Digital Application</h4></a>
+                                        <div class="links_locat d-flex align-items-center">
+                                            <div class="location">
+                                                <p> <i class="fa fa-map-marker"></i> Tunis,Tunisia</p>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jobs_right">
+                                    <a href="job_details.html" class="boxed-btn3" style="background-color: #3498db; color: #fff; margin-right: 10px;">Details</a>
+                                    <a asp-page="/Admin/Tasks/Index"class=" boxed-btn3" style="background-color: #3498db; color: #fff;">Apply Now</a>
+                                    <div class="date">
+                                        <p>Start Date:01/07/2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-lg-12 col-md-12">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="/img3/svg_icon/1.svg" alt="">
+                                    </div>
+                                    <div class="jobs_conetent">
+                                        <a href="job_details.html"><h4>Smart IoT Monitoring System</h4></a>
+                                        <div class="links_locat d-flex align-items-center">
+                                            <div class="location">
+                                                <p> <i class="fa fa-map-marker"></i> Tunis, Tunisia</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jobs_right">
+                                    <div class="apply_now">
+                                         <a href="job_details.html" class="boxed-btn3" style="background-color: #3498db; color: #fff; margin-right: 10px;">Details</a>
+                                         <a href="job_details.html" class="boxed-btn3" style="background-color: #3498db; color: #fff;">Apply Now</a>
+
+                                    </div>
+                                    <div class="date">
+                                        <p>Start date:15/09/2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+@* 
+                        <div class="col-lg-12 col-md-12">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="/img3/svg_icon/3.svg" alt="">
+                                    </div>
+                                    <div class="jobs_conetent">
+                                        <a href="job_details.html"><h4>Wordpress Developer</h4></a>
+                                        <div class="links_locat d-flex align-items-center">
+                                            <div class="location">
+                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                            </div>
+                                            <div class="location">
+                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jobs_right">
+                                    <div class="apply_now">
+                                        <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                    </div>
+                                    <div class="date">
+                                        <p>Date line: 31 Jan 2020</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="/img3/svg_icon/4.svg" alt="">
+                                    </div>
+                                    <div class="jobs_conetent">
+                                        <a href="job_details.html"><h4>Visual Designer</h4></a>
+                                        <div class="links_locat d-flex align-items-center">
+                                            <div class="location">
+                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                            </div>
+                                            <div class="location">
+                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jobs_right">
+                                    <div class="apply_now">
+                                        <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                    </div>
+                                    <div class="date">
+                                        <p>Date line: 31 Jan 2020</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="/img3/svg_icon/5.svg" alt="">
+                                    </div>
+                                    <div class="jobs_conetent">
+                                        <a href="job_details.html"><h4>Software Engineer</h4></a>
+                                        <div class="links_locat d-flex align-items-center">
+                                            <div class="location">
+                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                            </div>
+                                            <div class="location">
+                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jobs_right">
+                                    <div class="apply_now">
+                                        <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                    </div>
+                                    <div class="date">
+                                        <p>Date line: 31 Jan 2020</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> *@
+                       @*  <div class="col-lg-12 col-md-12">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="/img3/svg_icon/1.svg" alt="">
+                                    </div>
+                                    <div class="jobs_conetent">
+                                        <a href="job_details.html"><h4>Creative Designer</h4></a>
+                                        <div class="links_locat d-flex align-items-center">
+                                            <div class="location">
+                                                <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                            </div>
+                                            <div class="location">
+                                                <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jobs_right">
+                                    <div class="apply_now">
+                                        <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                        <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                    </div>
+                                    <div class="date">
+                                        <p>Date line: 31 Jan 2020</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- job_listing_area_end  -->
+        </body>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~//js3/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("NToastNotify")
+
+    <!-- link that opens popup -->
+    <!-- JS here -->
+    <script src="/js3/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/js3/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/js3/popper.min.js"></script>
+    <script src="/js3/bootstrap.min.js"></script>
+    <script src="/js3/owl.carousel.min.js"></script>
+    <script src="/js3/isotope.pkgd.min.js"></script>
+    <script src="/js3/ajax-form.js"></script>
+    <script src="/js3/waypoints.min.js"></script>
+    <script src="/js3/jquery.counterup.min.js"></script>
+    <script src="/js3/imagesloaded.pkgd.min.js"></script>
+    <script src="/js3/scrollIt.js"></script>
+    <script src="/js3/jquery.scrollUp.min.js"></script>
+    <script src="/js3/wow.min.js"></script>
+    <script src="/js3/nice-select.min.js"></script>
+    <script src="/js3/jquery.slicknav.min.js"></script>
+    <script src="/js3/jquery.magnific-popup.min.js"></script>
+    <script src="/js3/plugins.js"></script>
+    <script src="/js3/gijgo.min.js"></script>
+
+
+
+    <!--contact js-->
+    <script src="/js3/contact.js"></script>
+    <script src="/js3/jquery.ajaxchimp.min.js"></script>
+    <script src="/js3/jquery.form.js"></script>
+    <script src="/js3/jquery.validate.min.js"></script>
+    <script src="/js3/mail-script.js"></script>
+
+
+    <script src="/js3/main.js"></script>
+</body>
+</html>

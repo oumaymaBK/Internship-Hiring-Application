@@ -1,0 +1,194 @@
+﻿@page
+@model RazorPages.Pages.Admin.Tasks.Index2Model
+
+@{
+    Layout = null;
+}
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .feedback {
+            display: none;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+    <div class="container">
+        <div class="col-sm-6 align-self-center">
+            <h1 class="mt-5 mb-4">Test</h1>
+            <form id="testForm">
+                <div class="question">
+                    <p>Question 1 : Quelle est la capitale de la France ?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="q1" value="paris" id="q1Paris">
+                        <label class="form-check-label" for="q1Paris">Paris</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="q1" value="londres" id="q1Londres">
+                        <label class="form-check-label" for="q1Londres">Londres</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="q1" value="berlin" id="q1Berlin">
+                        <label class="form-check-label" for="q1Berlin">Berlin</label>
+                    </div>
+                    <div class="feedback mt-2" id="q1Feedback"></div>
+                </div>
+
+                <div class="question">
+                    <p>Question 2 : Quel est le plus grand océan du monde ?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="q2" value="pacifique" id="q2Pacifique">
+                        <label class="form-check-label" for="q2Pacifique">Pacifique</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="q2" value="atlantique" id="q2Atlantique">
+                        <label class="form-check-label" for="q2Atlantique">Atlantique</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="q2" value="indien" id="q2Indien">
+                        <label class="form-check-label" for="q2Indien">Indien</label>
+                    </div>
+                    <div class="feedback mt-2" id="q2Feedback"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="timing">Timing :</label>
+                    <input type="time" id="timing" name="timing" value="totalTimeInSeconds">
+                </div>
+
+                <button type="button" class="btn btn-primary mt-3" onclick="checkAnswers()">Soumettre</button>
+            </form>
+
+            <div class="modal" id="resultModal" style="display: none;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Résultat du test</h5>
+                            <button type="button" class="close" onclick="closeModal()" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="modalBody"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onclick="closeModal()">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        var score = 0;
+        var totalQuestions = 2;
+
+        function checkAnswers() {
+            score = 0;
+            var q1Answers = document.querySelectorAll('input[name="q1"]:checked');
+            var q2Answers = document.querySelectorAll('input[name="q2"]:checked');
+
+            var q1Correct = Array.from(q1Answers).some(function (answer) {
+                if (answer.value === 'paris') {
+                    score += 1;
+                    return true;
+                }
+                return false;
+            });
+
+            var q2Correct = Array.from(q2Answers).some(function (answer) {
+                if (answer.value === 'pacifique') {
+                    score += 1;
+                    return true;
+                }
+                return false;
+            });
+
+            displayFeedback(q1Correct, 'q1Feedback');
+            displayFeedback(q2Correct, 'q2Feedback');
+
+            displayModalResult();
+            startTimer();
+        }
+
+        function displayFeedback(correct, feedbackId) {
+            var feedbackElement = document.getElementById(feedbackId);
+            if (correct) {
+                feedbackElement.innerHTML = '<div class="success-message"><span class="text-success">✔️ Bonne réponse! (+1)</span></div>';
+            } else {
+                feedbackElement.innerHTML = '<div class="error-message"><span class="text-danger">❌ Mauvaise réponse.</span></div>';
+            }
+            feedbackElement.style.display = 'block';
+        }
+
+        function displayModalResult() {
+            var percentage = (score / totalQuestions) * 100;
+            var modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = '<p>Score : ' + score + '/' + totalQuestions + '</p>';
+            modalBody.innerHTML += '<p>Pourcentage : ' + percentage.toFixed(2) + '%</p>';
+            if (percentage >= 60) {
+                modalBody.innerHTML += '<div class="success-message">🙂 Félicitations! Vous avez réussi pour le test technique!</div>';
+                modalBody.innerHTML += '<button type="button" class="btn btn-primary" onclick="chooseDate()">Choisir une date</button>';
+            } else {
+                modalBody.innerHTML += '<div class="error-message">😢 Dommage!</div>';
+            }
+            var modal = document.getElementById('resultModal');
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('resultModal');
+            modal.style.display = 'none';
+        }
+
+        // function startTimer() {
+        //     var timing = document.getElementById('timing').value;
+        //     var timeArray = timing.split(':');
+        //     var minutes = parseInt(timeArray[0]);
+        //     var seconds = parseInt(timeArray[1]);
+        //     var totalTimeInSeconds =  3* 60 + seconds;
+
+        //     setTimeout(function () {
+        //         alert('Vous avez dépassé le temps!');
+        //         window.location.href = 'index.html'; // Redirige l'utilisateur vers la page d'accueil
+        //     }, totalTimeInSeconds * 1000);
+        // }
+        function startTimer() {
+            var totalTimeInSeconds = 3 * 60;
+
+            setTimeout(function () {
+                alert('Vous avez dépassé le temps!');
+                window.location.href = 'index.html'; // Redirige l'utilisateur vers la page d'accueil
+            }, totalTimeInSeconds * 1000);
+        }
+    </script>
+
+</html>

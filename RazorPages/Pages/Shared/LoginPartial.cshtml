@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using RazorPages.Models
+@inject SignInManager<AppUser> _SignInManager //  injection de service sous le nom _ /Injection des dépendences//
+@inject UserManager<AppUser> _UserManager//on fait l'ajout de userManager pour récépurer le nom d'utilistaeur//
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav  style="margin-left:auto;">
+        <!-- Ajoutez ici les éléments de la barre de navigation principale -->
+    </ul>
+    <ul class="navbar-nav" style="margin-left:auto;">
+        
+        @if (_SignInManager.IsSignedIn(User))// utilisateur connecté 
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link text-white dropdown-toggle" href="#" data-role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i> @_UserManager.GetUserAsync(User).Result.FullName
+
+                </a>
+                <ul class="dropdown-menu dropdown-menu-white">
+                    @* <li><a class="dropdown-item" href="#">Profil</a></li>
+                    <li><a class="dropdown-item" href="#">Mes tests</a></li> *@
+                    <li><a class="dropdown-item" asp-page="/Admin/Users/Login" asp-page-handler="LogOut">LogOut</a></li>
+                </ul>
+            </li>
+        }
+
+        else // utilisateur  non connecté
+
+        {
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-page="/Admin/Users/Register">
+                    <i class="bi bi-person-plus"></i> Register
+                </a>
+            </li>
+
+            
+            <li class="nav-item">
+              <a class="nav-link text-white" asp-page="/Admin/Users/Login">
+                <i class="bi bi-person-plus"></i> Login
+             </a>
+            </li>
+        }
+       
+    </ul>
+</div>

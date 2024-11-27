@@ -1,0 +1,434 @@
+﻿@page
+@model RazorPages.Pages.Admin.Users.IndexModel
+@{
+    Layout = null;
+}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sofbox - Responsive Bootstrap 4 Admin Dashboard Template</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images1/favicon.ico" />
+    <!-- Bootstrap /css1 -->
+    <link rel="stylesheet" href="/css1/bootstrap.min.css">
+    <!-- Typography /css1 -->
+    <link rel="stylesheet" href="/css1/typography.css">
+    <!-- Style /css1 -->
+    <link rel="stylesheet" href="/css1/style.css">
+    <!-- Responsive /css1 -->
+    <link rel="stylesheet" href="/css1/responsive.css">
+</head>
+<body>
+    <!-- loader Start -->
+    @* Just image Loed
+    <div id="loading">
+    <div id="loading-center">
+    <div class="loader">
+    <div class="cube">
+    <div class="sides">
+    <div class="top"></div>
+    <div class="right"></div>
+    <div class="bottom"></div>
+    <div class="left"></div>
+    <div class="front"></div>
+    <div class="back"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    *@
+    <!-- loader END -->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <div class="iq-sidebar">
+            <div class="iq-sidebar-logo d-flex justify-content-between">
+                <a href="index.html">
+                    <img src="/images1/logo.png" class="img-fluid" alt="">
+
+                </a>
+                <div class="iq-menu-bt align-self-center">
+                    <div class="wrapper-menu">
+                        <div class="line-menu half start"></div>
+                        <div class="line-menu"></div>
+                        <div class="line-menu half end"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar-scrollbar">
+                <nav class="iq-sidebar-menu">
+                    <ul id="iq-sidebar-toggle" class="iq-menu">
+                        <li class="iq-menu-title"><i class="ri-separator"></i><span>Main</span></li>
+                        <li class="">
+                            <a asp-page="/Home/Index" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-home-4-line"></i><span>Dashboard</span></a>
+
+                            
+
+                        <li class="active">
+                            <a href="#user-info" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-user-line"></i><span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                            <ul id="user-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                                <li class="active"><a asp-page="/Admin/Users/GestionUser">User Add</a></li>
+                                <li><a asp-page="/Admin/Users/IndexUserList">User List</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a asp-page="/Admin/Users/Index" class="iq-waves-effect"><i class="ri-chat-check-line"></i><span>Project</span></a></li>                        
+                    </ul>
+                </nav>
+                <div class="p-3"></div>
+            </div>
+        </div>
+        <!-- TOP Nav Bar -->
+        <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <div class="iq-sidebar-logo">
+                    <div class="top-logo">
+                        <a href="index.html" class="logo">
+                            <img src="/images1/logo.png" class="img-fluid" alt="">
+                            <span>Innov-Alliance-Tech</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="navbar-breadcrumb">
+                    <h5 class="mb-0">Dashboard</h5>
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-page ="/Home/Index">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">  Add User</li>
+                        </ul>
+                    </nav>
+                   
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="ri-menu-3-line"></i>
+                    </button>
+                    <div class="iq-menu-bt align-self-center">
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto navbar-list">
+                           
+                            <li class="nav-item dropdown">
+
+                                <div class="iq-sub-dropdown">
+                                    <div class="iq-card iq-card-block iq-card-stretch iq-card-height shadow-none m-0">
+                                        <div class="iq-card-body p-0 ">
+                                            <div class="bg-primary p-3">
+                                                <h5 class="mb-0 text-white">All Messages<small class="badge  badge-light float-right pt-1">5</small></h5>
+                                            </div>
+
+                                            <div class="media align-items-center">
+                                                <div class="">
+                                                    <img class="avatar-40 rounded" src="/images1/user/01.jpg" alt="">
+                                                </div>
+                                                <div class="media-body ml-3">
+                                                    <h6 class="mb-0 ">Nik Emma Watson</h6>
+                                                    <small class="float-left font-size-12">13 Jun</small>
+                                                </div>
+                                            </div>
+                                            
+                                            <a href="#" class="iq-sub-card">
+                                                <div class="media align-items-center">
+                                                    <div class="">
+                                                        <img class="avatar-40 rounded" src="/images1/user/02.jpg" alt="">
+                                                    </div>
+                                                    <div class="media-body ml-3">
+                                                    </div>
+                                                </div>
+                                            </a>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                            <li class="nav-item">
+                                <a href="#" class="search-toggle iq-waves-effect">
+                                    <i class="ri-notification-2-line"></i>
+                                    <span class="bg-danger dots"></span>
+                                </a>
+
+                                <div class="iq-sub-dropdown">
+                                    <div class="iq-card iq-card-block iq-card-stretch iq-card-height shadow-none m-0">
+                                        <div class="iq-card-body p-0 ">
+                                            <div class="bg-danger p-3">
+                                                <h5 class="mb-0 text-white">All Notifications<small class="badge  badge-light float-right pt-1">4</small></h5>
+                                            </div>
+                                            <a href="#" class="iq-sub-card">
+                                                <div class="media align-items-center">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-0 ">New Order Recieved</h6>
+                                                        <small class="float-right font-size-12">23 hrs ago</small>
+                                                        <p class="mb-0">Lorem is simply</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="iq-sub-card">
+                                                <div class="media align-items-center">
+                                                    <div class="">
+                                                        <img class="avatar-40 rounded" src="//images11/user/01.jpg" alt="">
+                                                    </div>
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-0 ">Emma Watson Nik</h6>
+                                                        <small class="float-right font-size-12">Just Now</small>
+                                                        <p class="mb-0">95 MB</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="iq-sub-card">
+                                                <div class="media align-items-center">
+                                                    <div class="">
+                                                        <img class="avatar-40 rounded" src="/images1/user/02.jpg" alt="">
+                                                    </div>
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-0 ">New customer is join</h6>
+                                                        <small class="float-right font-size-12">5 days ago</small>
+                                                        <p class="mb-0">Jond Nik</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="iq-sub-card">
+                                                <div class="media align-items-center">
+                                                    <div class="">
+                                                        <img class="avatar-40" src="/images1/small/jpg.svg" alt="">
+                                                    </div>
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-0 ">Updates Available</h6>
+                                                        <small class="float-right font-size-12">Just Now</small>
+                                                        <p class="mb-0">120 MB</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item iq-full-screen"><a href="#" class="iq-waves-effect" id="btnFullscreen"><i class="ri-fullscreen-line"></i></a></li>
+                        </ul>
+                    </div>
+                    <ul class="navbar-list">
+                        <li>
+                            <a href="#" class="search-toggle iq-waves-effect bg-primary text-white"><img src="/images1/user/1.jpg" class="img-fluid rounded" alt="user"></a>
+                            <div class="iq-sub-dropdown iq-user-dropdown">
+                                <div class="iq-card iq-card-block iq-card-stretch iq-card-height shadow-none m-0">
+                                    <div class="iq-card-body p-0 ">
+                                        <div class="bg-primary p-3">
+                                            <h5 class="mb-0 text-white line-height">Hello Nik jone</h5>
+                                            <span class="text-white font-size-12">Available</span>
+                                        </div>
+                                        <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                                            <div class="media align-items-center">
+                                                <div class="rounded iq-card-icon iq-bg-primary">
+                                                    <i class="ri-file-user-line"></i>
+                                                </div>
+                                                <div class="media-body ml-3">
+                                                    <h6 class="mb-0 ">My Profile</h6>
+                                                    <p class="mb-0 font-size-12">View personal profile details.</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-success-hover">
+                                            <div class="media align-items-center">
+                                                <div class="rounded iq-card-icon iq-bg-success">
+                                                    <i class="ri-profile-line"></i>
+                                                </div>
+                                                <div class="media-body ml-3">
+                                                    <h6 class="mb-0 ">Edit Profile</h6>
+                                                    <p class="mb-0 font-size-12">Modify your personal details.</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="account-setting.html" class="iq-sub-card iq-bg-primary-danger-hover">
+                                            <div class="media align-items-center">
+                                                <div class="rounded iq-card-icon iq-bg-danger">
+                                                    <i class="ri-account-box-line"></i>
+                                                </div>
+                                                <div class="media-body ml-3">
+                                                    <h6 class="mb-0 ">Account settings</h6>
+                                                    <p class="mb-0 font-size-12">Manage your account parameters.</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-secondary-hover">
+                                            <div class="media align-items-center">
+                                                <div class="rounded iq-card-icon iq-bg-secondary">
+                                                    <i class="ri-lock-line"></i>
+                                                </div>
+                                                <div class="media-body ml-3">
+                                                    <h6 class="mb-0 ">Privacy Settings</h6>
+                                                    <p class="mb-0 font-size-12">Control your privacy parameters.</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="d-inline-block w-100 text-center p-3">
+                                            <a class="iq-bg-danger iq-sign-btn" href="sign-in.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- TOP Nav Bar END -->
+        <!-- Page Content  -->
+        <div id="content-page" class="content-page">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="iq-card">
+                            <div class="iq-card-header d-flex justify-content-between">
+                                <div class="iq-header-title">
+                                    <h4 class="card-title">Add New User</h4>
+                                </div>
+                            </div>
+                            <div class="iq-card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <div class="add-img-user profile-img-edit">
+                                            <img class="profile-pic img-fluid" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0OCA3OS4xNjQwMzYsIDIwMTkvMDgvMTMtMDE6MDY6NTcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkUwQ0I4M0M0NUVBQTExRUFBNTc0Q0U1Mjg1RUM5QTAyIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkUwQ0I4M0MzNUVBQTExRUFBNTc0Q0U1Mjg1RUM5QTAyIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE3IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU2REE3OThFMjU2RjExRUE4MDYyRDlDRDNFQzAwMTYxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU2REE3OThGMjU2RjExRUE4MDYyRDlDRDNFQzAwMTYxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQAAQEBAQEBAQEBAQEBAQEB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" alt="profile-pic">
+                                            <div class="p-image">
+                                                <!-- <h5 class="upload-button">file upload</h5> -->
+                                                <a href="javascript:void();" class="upload-button btn iq-bg-primary">File Upload</a>
+                                                <input class="file-upload" type="file" accept="image/*">
+                                            </div>
+                                        </div>
+                                        <div class="img-extension mt-3">
+                                            <div class="d-inline-block align-items-center">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>User Role:</label>
+                                        <select class="form-control" id="selectuserrole">
+                                            <option>Select</option>
+                                            <option>Admin</option>
+                                            <option>Manager</option>
+                                            <option>HR Recruiter</option>
+                                            
+                                        </select>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="iq-card">
+                            <div class="iq-card-header d-flex justify-content-between">
+                                <div class="iq-header-title">
+                                    <h4 class="card-title">New User Information</h4>
+                                </div>
+                            </div>
+                            <div class="iq-card-body">
+                                <div class="new-user-info">
+                                    <form>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="fname">First Name:</label>
+                                                <input type="text" class="form-control" id="fname" placeholder="First Name">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="lname">Last Name:</label>
+                                                <input type="text" class="form-control" id="lname" placeholder="Last Name">
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label for="mobno">Mobile Number:</label>
+                                                <input type="text" class="form-control" id="mobno" placeholder="Mobile Number">
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Email:</label>
+                                                <input type="email" class="form-control" id="email" placeholder="Email">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="pno">Password:</label>
+                                                <input type="text" class="form-control" id="pno" placeholder="Password">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="city">Confirm Password:</label>
+                                                <input type="text" class="form-control" id="city" placeholder="Confirm Password">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        
+                                        <button type="submit" class="btn btn-primary">Add New User</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Footer -->
+    <footer class="bg-white iq-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-inline mb-0">
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-right">
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <!-- Wrapper END -->
+    <!-- Footer -->
+    <footer class="bg-white iq-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-inline mb-0">
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-right">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer END -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js1/jquery.min.js"></script>
+    <script src="/js1/popper.min.js"></script>
+    <script src="/js1/bootstrap.min.js"></script>
+    <!-- Appear JavaScript -->
+    <script src="/js1/jquery.appear.js"></script>
+    <!-- Countdown JavaScript -->
+    <script src="/js1/countdown.min.js"></script>
+    <!-- Counterup JavaScript -->
+    <script src="/js1/waypoints.min.js"></script>
+    <script src="/js1/jquery.counterup.min.js"></script>
+    <!-- Wow JavaScript -->
+    <script src="/js1/wow.min.js"></script>
+    <!-- Apexcharts JavaScript -->
+    <script src="/js1/apexcharts.js"></script>
+    <!-- Slick JavaScript -->
+    <script src="/js1/slick.min.js"></script>
+    <!-- Select2 JavaScript -->
+    <script src="/js1/select2.min.js"></script>
+    <!-- Owl Carousel JavaScript -->
+    <script src="/js1/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JavaScript -->
+    <script src="/js1/jquery.magnific-popup.min.js"></script>
+    <!-- Smooth Scrollbar JavaScript -->
+    <script src="/js1/smooth-scrollbar.js"></script>
+    <!-- lottie JavaScript -->
+    <script src="/js1/lottie.js"></script>
+    <!-- Chart Custom JavaScript -->
+    <script src="/js1/chart-custom.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="/js1/custom.js"></script>
+</body>
+</html>

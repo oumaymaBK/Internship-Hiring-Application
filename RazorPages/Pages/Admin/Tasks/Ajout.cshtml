@@ -1,0 +1,61 @@
+﻿@page
+@model RazorPages.Pages.Admin.Tasks.AjoutModel
+@{
+}
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire administratif - Création de QCM</title>
+</head>
+<body>
+
+    <h1>Formulaire administratif - Création de QCM</h1>
+
+    <form>
+        <label for="qcm_title">Titre du QCM :</label><br>
+        <input type="text" id="qcm_title" name="qcm_title"><br><br>
+
+        <label for="qcm_subject">Sujet :</label><br>
+        <textarea id="qcm_subject" name="qcm_subject" rows="4" cols="50"></textarea><br><br>
+
+        <label for="qcm_instructions">Instructions pour les candidats :</label><br>
+        <textarea id="qcm_instructions" name="qcm_instructions" rows="4" cols="50"></textarea><br><br>
+
+        <fieldset>
+            <legend>Questions :</legend>
+
+            <div id="questions">
+                <!-- Les questions seront ajoutées dynamiquement ici -->
+            </div>
+
+            <button type="button" onclick="addQuestion()">Ajouter une question</button>
+        </fieldset>
+
+        <br>
+
+        <input type="submit" value="Soumettre">
+    </form>
+
+    <script>
+        let questionNumber = 1;
+
+        function addQuestion() {
+            const questionsDiv = document.getElementById('questions');
+            const newQuestionDiv = document.createElement('div');
+            newQuestionDiv.innerHTML = `
+                    <label for="question_${questionNumber}">Question ${questionNumber} :</label><br>
+                    <input type="text" id="question_${questionNumber}" name="question_${questionNumber}"><br>
+                    <label for="answer_${questionNumber}">Réponse :</label><br>
+                    <input type="text" id="answer_${questionNumber}" name="answer_${questionNumber}"><br>
+                    <input type="checkbox" id="include_${questionNumber}" name="include_${questionNumber}">
+                    <label for="include_${questionNumber}">Ajouter à la liste des réponses possibles du QCM</label><br><br>
+                `;
+            questionsDiv.appendChild(newQuestionDiv);
+            questionNumber++;
+        }
+    </script>
+
+</body>
+</html>
